@@ -5,12 +5,17 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --fix"
   },
+  "packageManager": "pnpm@7.5.0",
   "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "eslint": "^8.31.0",
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "@esotericsoftware/spine-player": "^4.2.10",
     "@unocss/nuxt": "^0.47.6",
     "@unocss/reset": "^0.48.0"
   }

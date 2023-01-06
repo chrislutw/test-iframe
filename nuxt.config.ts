@@ -9,4 +9,7 @@ export default defineNuxtConfig({
   css: [
     '@unocss/reset/tailwind.css',
   ],
+  build: {
+    transpile: ['@esotericsoftware/spine-player', '@esotericsoftware/spine-core'],
+  },
 })
