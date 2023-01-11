@@ -106,19 +106,17 @@ function playSound() {
       <Meta name="description" content="spine-demo" />
       <Style type="text/css" children="body { background-color: transparent; }" />
     </Head>
-    <div class="flex-grow" id="player-container" />
+    <div id="player-container" class="flex-grow" />
     <div class="flex flex-col gap-2 items-center justify-center">
-      <button class="rounded bg-blue-400 p-2" @click="attack()">
+      <button
+        class="border rounded font-extrabold bg-gray-200/20 border-dark-400 shadow p-2 shadow-dark-300 text-2xl text-dark-400/60 w-32 uppercase"
+        @click="attack()">
         attack
       </button>
-      <button class="rounded bg-blue-400 p-2" @click="idle()">
+      <button
+        class="border rounded font-extrabold bg-gray-200/20 border-dark-400 shadow p-2 shadow-dark-300 text-2xl text-dark-400/60 w-32 uppercase"
+        @click="idle()">
         idle
-      </button>
-      <button class="rounded bg-blue-400 p-2" @click="stop()">
-        stop
-      </button>
-      <button class="rounded bg-blue-400 p-2" @click="playSound()">
-        play sound
       </button>
     </div>
   </div>
