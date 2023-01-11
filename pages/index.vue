@@ -3,10 +3,13 @@
     <NuxtWelcome />
   </div> -->
   <div class="h-screen w-full auto-rows-min grid gap-4 grid-cols-4 grid-rows-4 justify-center items-center">
-    <iframe width="100%" height="100%" class="col-span-4 row-span-2"
-      src="https://test-wbgame.jlfafafa3.com/gl_sl/index.html" frameborder="0" />
-    <iframe width="100%" height="100%" class="col-span-2" src="https://test-wbgame.jlfafafa3.com/gl_sl/index.html"
-      frameborder="0" />
+    <div
+      class="flex h-full bg-dark-200 w-full text-light-300 text-4xl col-span-4 row-span-2 justify-center items-center uppercase">
+      demo
+    </div>
+    <div class="rounded-md h-full w-full col-span-2 relative">
+      <img src="/images/bg.png" class="h-full object-cover w-full absolute">
+    </div>
     <div class="rounded-md h-full border-2 border-dark-600 w-full col-span-2 row-span-2 relative">
       <img src="/images/bg.png" class="h-full object-cover w-full absolute">
       <iframe width="100%" height="100%" src="/spine-demo" frameborder="0" allowtransparency="true" class=" relative" />
