@@ -44,6 +44,12 @@ function initSpine() {
     showControls: false,
     backgroundColor: "#00000000",
     alpha: true,
+    viewport: {
+      x: -300,
+      y: 100,
+      width: 2000,
+      height: 1000,
+    },
     // Added:
     success: (player: any) => {
       console.log('success: ', player)
@@ -93,9 +99,15 @@ function playSound() {
 </script>
 
 <template>
-  <div class="bg-red-500">
-    <div id="player-container" />
-    <div class="flex gap-2 items-center justify-center">
+  <div class="flex p-4 items-center justify-center">
+
+    <Head>
+      <Title>spine-demo</Title>
+      <Meta name="description" content="spine-demo" />
+      <Style type="text/css" children="body { background-color: transparent; }" />
+    </Head>
+    <div class="flex-grow" id="player-container" />
+    <div class="flex flex-col gap-2 items-center justify-center">
       <button class="rounded bg-blue-400 p-2" @click="attack()">
         attack
       </button>
