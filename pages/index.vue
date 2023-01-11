@@ -12,7 +12,7 @@
     </div>
     <div class="rounded-md h-full border-2 border-dark-600 w-full col-span-2 row-span-2 relative">
       <img src="/images/bg.png" class="h-full object-cover w-full absolute">
-      <iframe width="100%" height="100%" src="/spine-demo" frameborder="0" allowtransparency="true" class=" relative" />
+
       <div class="font-extrabold bg-dark-600 w-full p-2 top-0 text-yellow-500 absolute">
         GAMESHOW
       </div>
@@ -24,8 +24,10 @@
           Play Now
         </button>
       </div>
+      <iframe width="100%" height="100%" src="/spine-demo" frameborder="0" allowtransparency="true" scrolling="no"
+        class="pointer-events-none relative" />
     </div>
-    <iframe width="800px" height="400px" src="/spine-demo" frameborder="0" allowtransparency="true"
+    <iframe width="800px" height="400px" src="/spine-demo" frameborder="0" allowtransparency="true" scrolling="no"
       class="top-[37%] left-[0%] absolute" />
   </div>
 </template>

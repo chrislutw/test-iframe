@@ -3,11 +3,11 @@ import * as spine from "@esotericsoftware/spine-player"
 import "@esotericsoftware/spine-player/dist/spine-player.css"
 import { Howl, Howler } from 'howler'
 
-function initSound() {
+function initSound(path: string) {
   return new Promise<Howl>((resolve) => {
     // Setup the new Howl.
     const _sound = new Howl({
-      src: ['/sound/1672977593140.mp3'],
+      src: [path],
       onload: () => {
         console.log('sound loaded.')
         resolve(_sound)
@@ -16,7 +16,8 @@ function initSound() {
   });
 }
 
-let sound: any = null
+let sound1: any = null
+let sound2: any = null
 
 
 
@@ -28,8 +29,8 @@ onMounted(async () => {
   initSpine()
 
   // Play the sound.
-  sound = await initSound()
-  console.log("sound: ", sound)
+  sound1 = await initSound('/sound/sound1.m4a')
+  sound2 = await initSound('/sound/sound2.m4a')
 
 })
 const player: any = ref(null)
@@ -37,18 +38,18 @@ const player: any = ref(null)
 function initSpine() {
   // @ts-ignore
   const playerInstance = new spine.SpinePlayer("player-container", {
-    jsonUrl: "/pirate/pirate.json",
-    atlasUrl: "/pirate/pirate.atlas",
+    jsonUrl: "/golden-land/Character.json",
+    atlasUrl: "/golden-land/0.4/Character.atlas",
     // premultipliedAlpha: false,
-    animation: "idle",
+    animation: "Action1_Loop",
     showControls: false,
     backgroundColor: "#00000000",
     alpha: true,
     viewport: {
-      x: -300,
-      y: 100,
-      width: 2000,
-      height: 1000,
+      x: -500,
+      y: 0,
+      width: 1200,
+      height: 900,
     },
     // Added:
     success: (player: any) => {
@@ -59,21 +60,42 @@ function initSpine() {
           console.log('animationState event trackEntry: ', trackEntry)
           switch (event.data.name) {
             case "music_Have":
-              sound.play()
+              sound1.play()
               break;
             case "music_noHave":
-              sound.stop()
+              sound1.stop()
               break;
           }
         },
         complete(trackEntry: any) {
           console.log('animationState complete trackEntry: ', trackEntry)
           console.log('animationState complete trackEntry.animation.name: ', trackEntry.animation.name)
-          sound.stop()
+
+          switch (trackEntry.animation.name) {
+            case "Action1_Loop":
+              player.setAnimation("Action2_Loop")
+              break;
+            case "Action2_Loop":
+              player.setAnimation("Action3_Loop")
+              sound2.stop()
+              break;
+            case "Action3_Loop":
+              player.setAnimation("Action1_Loop")
+              sound1.stop()
+              break;
+          }
         },
         start(trackEntry: any) {
           console.log('animationState start trackEntry: ', trackEntry)
           console.log('animationState start trackEntry.animation.name: ', trackEntry.animation.name)
+          switch (trackEntry.animation.name) {
+            case "Action2_Loop":
+              sound2.play()
+              break;
+            case "Action3_Loop":
+              sound1.play()
+              break;
+          }
         }
       })
     }
@@ -94,7 +116,7 @@ function stop() {
   player.value.animationState.setEmptyAnimation(0);
 }
 function playSound() {
-  sound.play()
+  sound1.play()
 }
 </script>
 
@@ -107,6 +129,7 @@ function playSound() {
       <Style type="text/css" children="body { background-color: transparent; }" />
     </Head>
     <div id="player-container" class="flex-grow" />
+    <!--
     <div class="flex flex-col gap-2 items-center justify-center">
       <button
         class="border rounded font-extrabold bg-gray-200/20 border-dark-400 shadow p-2 shadow-dark-300 text-2xl text-dark-400/60 w-32 uppercase"
@@ -119,5 +142,6 @@ function playSound() {
         idle
       </button>
     </div>
+    -->
   </div>
 </template>
