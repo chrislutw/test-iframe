@@ -9,7 +9,7 @@ function initSound(path: string) {
     const _sound = new Howl({
       src: [path],
       onload: () => {
-        console.log('sound loaded.')
+        console.log(`sound: ${path} loaded.`)
         resolve(_sound)
       }
     })
