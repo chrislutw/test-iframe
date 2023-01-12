@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@esotericsoftware/spine-player': ^4.2.10
+  '@esotericsoftware/spine-player': 4.1.24
   '@nuxt/eslint-config': ^0.1.1
   '@types/howler': ^2.2.7
   '@unocss/nuxt': ^0.47.6
@@ -12,7 +12,7 @@ specifiers:
   nuxt: 3.0.0
 
 dependencies:
-  '@esotericsoftware/spine-player': 4.2.10
+  '@esotericsoftware/spine-player': 4.1.24
   '@types/howler': 2.2.7
   '@unocss/nuxt': 0.47.6
   '@unocss/reset': 0.48.3
@@ -368,8 +368,8 @@ packages:
     resolution: {integrity: sha512-Yl7MO7hocn0sHCMcU+R9zbPeOVX+wW2Klc6sjFddufCuL4J1kG8ftWupPu+Pn95r9geubyQbdYCuvSm3S37kRA==}
     dev: false
 
-  /@esotericsoftware/spine-player/4.2.10:
-    resolution: {integrity: sha512-c3H+yb3lhQ+SiEgpQyJfCXzj6tZfowy/L1MoSZL08ZMoyxgo3jU/jYOPS/YXMOYK1xEtGcMhihMwIcAeGPxCWw==}
+  /@esotericsoftware/spine-player/4.1.24:
+    resolution: {integrity: sha512-0KoF3FxSLyBhJRd1acJggNJxRNyF6Vi4ayWkWqTBTqotxdXSeVuLYb+RByftAJaj1am/KKSzE8U+bE4wdgZbZg==}
     dependencies:
       '@esotericsoftware/spine-webgl': 4.2.10
     dev: false

@@ -41,11 +41,13 @@ function initSpine() {
     jsonUrl: "/golden-land/Character.json",
     atlasUrl: "/golden-land/0.4/Character.atlas",
     // premultipliedAlpha: false,
-    animation: "Action1_Loop",
+    animation: "Action1_Start",
+    defaultMix: 0,
     showControls: false,
     backgroundColor: "#00000000",
     alpha: true,
     viewport: {
+      // debugRender: true,
       x: -500,
       y: 0,
       width: 1200,
@@ -56,7 +58,7 @@ function initSpine() {
       console.log('success: ', player)
       player.animationState.addListener({
         event(trackEntry: any, event: any) {
-          console.log('animationState event event: ', event)
+          // console.log('animationState event event: ', event)
           console.log('animationState event trackEntry: ', trackEntry)
           switch (event.data.name) {
             case "music_Have":
@@ -68,31 +70,51 @@ function initSpine() {
           }
         },
         complete(trackEntry: any) {
-          console.log('animationState complete trackEntry: ', trackEntry)
+          // console.log('animationState complete trackEntry: ', trackEntry)
           console.log('animationState complete trackEntry.animation.name: ', trackEntry.animation.name)
 
           switch (trackEntry.animation.name) {
+            // case "Action1_Loop":
+            //   player.setAnimation("Action2_Loop")
+            //   break;
+            // case "Action2_Loop":
+            //   player.setAnimation("Action3_Loop")
+            //   sound2.stop()
+            //   break;
+            // case "Action3_Loop":
+            //   player.setAnimation("Action1_Loop")
+            //   sound1.stop()
+            //   break;
+            case "Action1_Start":
+              player.setAnimation("Action1_Loop")
+              break;
             case "Action1_Loop":
+              player.setAnimation("Action2_Start")
+              break;
+            case "Action2_Start":
               player.setAnimation("Action2_Loop")
               break;
             case "Action2_Loop":
-              player.setAnimation("Action3_Loop")
+              player.setAnimation("Action3_Start")
               sound2.stop()
               break;
+            case "Action3_Start":
+              player.setAnimation("Action3_Loop")
+              break;
             case "Action3_Loop":
-              player.setAnimation("Action1_Loop")
+              player.setAnimation("Action1_Start")
               sound1.stop()
               break;
           }
         },
         start(trackEntry: any) {
-          console.log('animationState start trackEntry: ', trackEntry)
+          // console.log('animationState start trackEntry: ', trackEntry)
           console.log('animationState start trackEntry.animation.name: ', trackEntry.animation.name)
           switch (trackEntry.animation.name) {
-            case "Action2_Loop":
+            case "Action2_Start":
               sound2.play()
               break;
-            case "Action3_Loop":
+            case "Action3_Start":
               sound1.play()
               break;
           }
