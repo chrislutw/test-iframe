@@ -49,7 +49,7 @@ function initSpine() {
     jsonUrl: "/golden-land/Character.json",
     atlasUrl: "/golden-land/0.4/Character.atlas",
     // premultipliedAlpha: false,
-    animation: "Action1_Start",
+    animation: "Action_All",
     defaultMix: 0,
     showControls: false,
     backgroundColor: "#00000000",
@@ -119,6 +119,9 @@ function initSpine() {
           // console.log('animationState start trackEntry: ', trackEntry)
           console.log('animationState start trackEntry.animation.name: ', trackEntry.animation.name)
           switch (trackEntry.animation.name) {
+            case "Action_All":
+              sound2.play()
+              break;
             case "Action2_Start":
               sound2.play()
               break;
