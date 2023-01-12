@@ -120,7 +120,7 @@ function initSpine() {
           console.log('animationState start trackEntry.animation.name: ', trackEntry.animation.name)
           switch (trackEntry.animation.name) {
             case "Action_All":
-              sound2.play()
+              sound2?.play()
               break;
             case "Action2_Start":
               sound2.play()
