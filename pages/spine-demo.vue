@@ -93,6 +93,10 @@ function initSpine() {
             //   player.setAnimation("Action1_Loop")
             //   sound1.stop()
             //   break;
+            case "Action_All":
+              sound2?.stop()
+              sound2?.play()
+              break;
             case "Action1_Start":
               player.setAnimation("Action1_Loop")
               break;
