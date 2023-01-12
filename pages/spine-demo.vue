@@ -3,6 +3,14 @@ import * as spine from "@esotericsoftware/spine-player"
 import "@esotericsoftware/spine-player/dist/spine-player.css"
 import { Howl, Howler } from 'howler'
 
+useHead({
+  title: 'spine-demo',
+  meta: [
+    { name: 'description', content: 'My amazing site.' }
+  ],
+  style: [ {children: 'body { background-color: transparent; }'} ]
+})
+
 function initSound(path: string) {
   return new Promise<Howl>((resolve) => {
     // Setup the new Howl.
@@ -144,13 +152,10 @@ function playSound() {
 
 <template>
   <div class="flex p-4 items-center justify-center">
-
-    <Head>
-      <Title>spine-demo</Title>
-      <Meta name="description" content="spine-demo" />
-      <Style type="text/css" children="body { background-color: transparent; }" />
-    </Head>
-    <div id="player-container" class="flex-grow" />
+    <div
+      id="player-container"
+      class="flex-grow"
+    />
     <!--
     <div class="flex flex-col gap-2 items-center justify-center">
       <button
