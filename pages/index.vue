@@ -44,13 +44,13 @@
         </button>
       </div>
       <iframe
-        width="100%"
-        height="100%"
+        width="800px"
+        height="800px"
         src="/spine-demo"
         frameborder="0"
         allowtransparency="true"
         scrolling="no"
-        class="pointer-events-none relative"
+        class="right-0 bottom-0 pointer-events-none absolute"
       />
     </div>
     <iframe

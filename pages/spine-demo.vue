@@ -47,7 +47,7 @@ function initSpine() {
   // @ts-ignore
   const playerInstance = new spine.SpinePlayer("player-container", {
     jsonUrl: "/golden-land/Character.json",
-    atlasUrl: "/golden-land/0.4/Character.atlas",
+    atlasUrl: "/golden-land/0.7/Character.atlas",
     // premultipliedAlpha: false,
     animation: "Action_All",
     defaultMix: 0,
@@ -55,11 +55,11 @@ function initSpine() {
     backgroundColor: "#00000000",
     alpha: true,
     viewport: {
-      // debugRender: true,
-      x: -500,
+      debugRender: true,
+      x: 0,
       y: 0,
-      width: 1200,
-      height: 900,
+      width: 900,
+      height: 1150,
     },
     // Added:
     success: (player: any) => {
@@ -161,7 +161,7 @@ function playSound() {
   <div class="flex p-4 items-center justify-center">
     <div
       id="player-container"
-      class="flex-grow"
+      class="h-screen w-screen"
     />
     <!--
     <div class="flex flex-col gap-2 items-center justify-center">
