@@ -55,7 +55,7 @@ function initSpine() {
     backgroundColor: "#00000000",
     alpha: true,
     viewport: {
-      debugRender: true,
+      // debugRender: true,
       x: 0,
       y: 0,
       width: 900,
