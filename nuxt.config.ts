@@ -7,6 +7,9 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@vueuse/nuxt',
   ],
+  plugins:[
+    '~/plugins/vercel.client.ts'
+  ],
   css: [
     '@unocss/reset/tailwind.css',
   ],
