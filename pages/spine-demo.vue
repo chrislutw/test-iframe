@@ -24,10 +24,7 @@ function initSound(path: string) {
   });
 }
 
-let sound1: any = null
-let sound2: any = null
-
-
+let voice: any = null
 
 // Change global volume.
 Howler.volume(0.5);
@@ -37,8 +34,7 @@ onMounted(async () => {
   initSpine()
 
   // Play the sound.
-  sound1 = await initSound('/sound/sound1.m4a')
-  sound2 = await initSound('/sound/sound2.m4a')
+  voice = await initSound('/sound/host_voice.mp3')
 
 })
 const player: any = ref(null)
@@ -67,13 +63,16 @@ function initSpine() {
       player.animationState.addListener({
         event(trackEntry: any, event: any) {
           // console.log('animationState event event: ', event)
-          console.log('animationState event trackEntry: ', trackEntry)
+          console.log('animationState event trackEntry: ', trackEntry, event.data.name)
           switch (event.data.name) {
-            case "music_Have":
-              sound1.play()
+            case "sound_start":
+              // prevent voice loops
+              voice.stop()
+
+              voice.play()
               break;
-            case "music_noHave":
-              sound1.stop()
+            case "sound_end":
+              voice.stop()
               break;
           }
         },
@@ -81,58 +80,10 @@ function initSpine() {
           // console.log('animationState complete trackEntry: ', trackEntry)
           console.log('animationState complete trackEntry.animation.name: ', trackEntry.animation.name)
 
-          switch (trackEntry.animation.name) {
-            // case "Action1_Loop":
-            //   player.setAnimation("Action2_Loop")
-            //   break;
-            // case "Action2_Loop":
-            //   player.setAnimation("Action3_Loop")
-            //   sound2.stop()
-            //   break;
-            // case "Action3_Loop":
-            //   player.setAnimation("Action1_Loop")
-            //   sound1.stop()
-            //   break;
-            case "Action_All":
-              sound2?.stop()
-              sound2?.play()
-              break;
-            case "Action1_Start":
-              player.setAnimation("Action1_Loop")
-              break;
-            case "Action1_Loop":
-              player.setAnimation("Action2_Start")
-              break;
-            case "Action2_Start":
-              player.setAnimation("Action2_Loop")
-              break;
-            case "Action2_Loop":
-              player.setAnimation("Action3_Start")
-              sound2.stop()
-              break;
-            case "Action3_Start":
-              player.setAnimation("Action3_Loop")
-              break;
-            case "Action3_Loop":
-              player.setAnimation("Action1_Start")
-              sound1.stop()
-              break;
-          }
         },
         start(trackEntry: any) {
           // console.log('animationState start trackEntry: ', trackEntry)
           console.log('animationState start trackEntry.animation.name: ', trackEntry.animation.name)
-          switch (trackEntry.animation.name) {
-            case "Action_All":
-              sound2?.play()
-              break;
-            case "Action2_Start":
-              sound2.play()
-              break;
-            case "Action3_Start":
-              sound1.play()
-              break;
-          }
         }
       })
     }
@@ -153,7 +104,7 @@ function stop() {
   player.value.animationState.setEmptyAnimation(0);
 }
 function playSound() {
-  sound1.play()
+  voice.play()
 }
 </script>
 
