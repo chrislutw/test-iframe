@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@esotericsoftware/spine-player": "4.1.24",
+    "@nuxtjs/web-vitals": "^0.2.2",
     "@types/howler": "^2.2.7",
     "@unocss/nuxt": "^0.47.6",
     "@unocss/reset": "^0.48.0",

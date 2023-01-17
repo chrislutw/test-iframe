@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@esotericsoftware/spine-player': 4.1.24
   '@nuxt/eslint-config': ^0.1.1
+  '@nuxtjs/web-vitals': ^0.2.2
   '@types/howler': ^2.2.7
   '@unocss/nuxt': ^0.47.6
   '@unocss/reset': ^0.48.0
@@ -13,6 +14,7 @@ specifiers:
 
 dependencies:
   '@esotericsoftware/spine-player': 4.1.24
+  '@nuxtjs/web-vitals': 0.2.2
   '@types/howler': 2.2.7
   '@unocss/nuxt': 0.47.6
   '@unocss/reset': 0.48.3
@@ -705,6 +707,19 @@ packages:
       - vls
       - vti
     dev: true
+
+  /@nuxtjs/web-vitals/0.2.2:
+    resolution: {integrity: sha512-UfIxBJGDXYnCgchPKt3rN1Tf66gUpRtOyo8gk9V9S2VWp8Q9ylHrwTB+y6ZPW+HRIC4B+KRh+LBIHv9ELycAJQ==}
+    dependencies:
+      '@nuxt/kit': 3.0.0
+      defu: 6.1.1
+      pathe: 1.0.0
+      ufo: 1.0.1
+      web-vitals: 3.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
@@ -5354,6 +5369,10 @@ packages:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
     dev: true
+
+  /web-vitals/3.1.1:
+    resolution: {integrity: sha512-qvllU+ZeQChqzBhZ1oyXmWsjJ8a2jHYpH8AMaVuf29yscOPZfTQTjQFRX6+eADTdsDE8IanOZ0cetweHMs8/2A==}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
