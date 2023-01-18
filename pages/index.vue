@@ -60,7 +60,7 @@
       frameborder="0"
       allowtransparency="true"
       scrolling="no"
-      class="transform bottom-0 left-[0%] -translate-x-[20%] absolute"
+      class="transform bottom-0 left-[0%] -translate-x-[20%] pointer-events-none absolute"
     />
   </div>
 </template>
